@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World & Moving Box</title>
+    <title>Moving Box</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            overflow: hidden; /* Prevents scrollbars when the box moves off-screen */
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevents scrollbars from appearing */
+            background-color: #f0f0f0;
         }
 
         /* Styling for the moving box */
@@ -17,58 +18,63 @@
             height: 50px;
             background-color: red;
             position: absolute;
-            top: 150px;
-            left: 50px;
-            transition: 0.1s ease; /* Makes the movement smoother */
+            top: 0px;
+            left: 0px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Hello World</h1>
-    <p>Use <b>WASD</b> or the <b>Arrow Keys</b> to move the red box.</p>
-
     <!-- The Box -->
     <div id="movingBox"></div>
 
     <script>
-        // Get the box element
         const box = document.getElementById('movingBox');
         
         // Set initial positions and movement speed
-        let topPos = 150;
-        let leftPos = 50;
+        let topPos = 100;
+        let leftPos = 100;
         const speed = 15; 
+
+        // Apply initial position
+        box.style.top = topPos + 'px';
+        box.style.left = leftPos + 'px';
 
         // Listen for keydown events
         window.addEventListener('keydown', (event) => {
+            // Get current window dimensions and box dimensions dynamically
+            const boxWidth = box.offsetWidth;
+            const boxHeight = box.offsetHeight;
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
             switch (event.key) {
-                // Move Up
+                // Move Up (Stop at top 0)
                 case 'w':
                 case 'W':
                 case 'ArrowUp':
-                    topPos -= speed;
+                    topPos = Math.max(0, topPos - speed);
                     break;
                 
-                // Move Down
+                // Move Down (Stop at window height minus box height)
                 case 's':
                 case 'S':
                 case 'ArrowDown':
-                    topPos += speed;
+                    topPos = Math.min(windowHeight - boxHeight, topPos + speed);
                     break;
                 
-                // Move Left
+                // Move Left (Stop at left 0)
                 case 'a':
                 case 'A':
                 case 'ArrowLeft':
-                    leftPos -= speed;
+                    leftPos = Math.max(0, leftPos - speed);
                     break;
                 
-                // Move Right
+                // Move Right (Stop at window width minus box width)
                 case 'd':
                 case 'D':
                 case 'ArrowRight':
-                    leftPos += speed;
+                    leftPos = Math.min(windowWidth - boxWidth, leftPos + speed);
                     break;
             }
 
