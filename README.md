@@ -1,5 +1,14 @@
 <html lang="en">
 <head>
+    <pre><code>
+&lt;div class="container"&gt;
+    &lt;p&gt;Hello World!&lt;/p&gt;
+&lt;/div&gt;
+
+function myFunction() {
+    console.log("This is a function.");
+}
+</code></pre>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moving Box</title>
