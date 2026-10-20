@@ -1,13 +1,22 @@
 <html lang="en">
 <head>
-    <pre><code>
-&lt;div class="container"&gt;
-    &lt;p&gt;Hello World!&lt;/p&gt;
-&lt;/div&gt;
+<pre><code>
 
-function myFunction() {
-    console.log("This is a function.");
-}
+Document Structure
+
+• <html>: The root container for an entire HTML document.
+• <head>: Holds invisible metadata, page titles, and stylesheet links for the browser.
+• <body>: Encloses all visible content rendered on the webpage.
+
+Headings and Text
+
+• <h1> to <h6>: Define document headings, with <h1> as the main title and <h6> as the smallest subheading.
+• <p>: Defines a standard block of text or paragraph.
+• <span>: An inline container used to style or target specific pieces of text with CSS.
+• <strong>: Indicates text with strong importance or bold weight.
+• <em>: Emphasizes text, typically rendered in italics.
+• <br>: Inserts a single line break.
+• <hr>: Creates a horizontal rule or thematic break line.
 </code></pre>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,7 +49,7 @@ function myFunction() {
         const box = document.getElementById('movingBox');
         
         // Set initial positions and movement speed
-        let topPos = 100;
+        let topPos = 500;
         let leftPos = 100;
         const speed = 15; 
 
